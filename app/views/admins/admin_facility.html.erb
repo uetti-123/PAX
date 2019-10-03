@@ -1,0 +1,22 @@
+<div class="container">
+	<h2>施設検索</h2>
+		<div class="row">
+			<%= search_form_for(@q, url:admin_facility_path) do |f| %>
+				<%= f.label :name, "施設名" %>
+				<%= f.search_field :name_cont %>
+				<%= f.submit "検索" %>
+			<% end %>
+		</div>
+		<div class="row">
+			<table class="table table-striped">
+				<% if @check.present? %>
+				<% @facilities.each do |facility| %>
+				<tr>
+					<td><%= facility.name %></td><td><%= link_to "施設詳細", facility_path(facility.id) %></td>
+				</tr>
+				<% end %>
+				<% else %>
+				<% end %>
+			</table>
+		</div>
+</div>

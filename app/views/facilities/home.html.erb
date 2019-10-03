@@ -2,4 +2,11 @@
 	<div class="row">
 		<%= image_tag 'image1.jpg', :size =>'1265x600' %>
 	</div>
+	<div class="row">
+		<%= search_form_for @q do |f| %>
+			<%= f.label :name_or_region, "行き先・宿名で探す" %>
+			<%= f.search_field :name_or_region_cont %>
+			<%= f.submit "検索" %>
+		<% end %>
+	</div>
 </div>

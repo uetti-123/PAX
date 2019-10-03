@@ -1,0 +1,22 @@
+<div class="container">
+	<h2>ユーザー検索</h2>
+		<div class="row">
+			<%= search_form_for(@q, url:admin_enduser_path) do |f| %>
+				<%= f.label :name, "名前" %>
+				<%= f.search_field :name_cont %>
+				<%= f.submit "検索" %>
+			<% end %>
+		</div>
+		<div class="row">
+			<table class="table table-striped">
+				<% if @check.present? %>
+				<% @endusers.each do |enduser| %>
+				<tr>
+					<td><%= enduser.name %></td><td><%= link_to "ユーザー詳細", enduser_path(enduser.id) %></td>
+				</tr>
+				<% end %>
+				<% else %>
+				<% end %>
+			</table>
+		</div>
+</div>

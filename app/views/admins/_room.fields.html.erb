@@ -1,0 +1,21 @@
+<div class="row">
+	<h5>部屋名</h5>
+	<%= s.text_field :name %>
+	<h5>部屋番号</h5>
+	<%= s.number_field :number %>
+	<h5>宿泊可能人数</h5>
+	<%= s.number_field :capacity %>
+	<h5>部屋情報</h5>
+	<%= s.text_field :information %>
+	<h5>料金</h5>
+	<%= s.number_field :price %>
+	<h5>部屋画像</h5>
+	<%= s.attachment_field :image_id %>
+	<%= link_to_remove_association "部屋削除", s %>
+</div>
+<div class="row">
+	<%= f.fields_for :image do |image| %>
+		<%= render 'image_fields', f: image %>
+	<% end %>
+	<%= link_to_add_association '部屋画像追加', f, :images %>
+</div>

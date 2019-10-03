@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
       when Enduser
         root_path
       when Admin
-        home_path
+        top_path
       when Owner
        	owner_home_path
       end

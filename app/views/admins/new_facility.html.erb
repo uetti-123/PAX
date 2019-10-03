@@ -1,0 +1,28 @@
+<div class="container">
+	<h2>新規施設追加</h2>
+		<div class="row">
+			<%= form_with model: @facility do |s| %>
+				<div class="row">
+					<h4>施設名</h4>
+						<%= s.text_field :name %>
+					<h4>郵便番号</h4>
+						<%= s.text_field :postal_code %>
+					<h4>施設住所</h4>
+						<%= s.text_field :address %>
+					<h4>電話番号</h4>
+						<%= s.text_field :phone %>
+					<h4>メールアドレス</h4>
+						<%= s.text_field :email %>
+				</div>
+				<div class="row">
+					<%= s.fields_for :room do |room| %>
+						<%= render 'room_fields', s: room %>
+					<% end %>
+				</div>
+				<div class="row">
+					<%= link_to_add_association '部屋追加', s, :rooms %>
+				</div>
+			<%= s.submit '施設追加' %>
+			<% end %>
+		</div>
+</div>

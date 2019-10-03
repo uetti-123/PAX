@@ -1,0 +1,9 @@
+<div class="container">
+	<div class="row">
+		<% @facilities.each do |facility| %>
+			<div class="field">
+				<%= link_to facility.name, facility_path(facility.id) %>
+			</div>
+		<% end %>
+	</div>
+</div>
