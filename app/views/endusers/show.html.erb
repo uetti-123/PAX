@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+		<table class="table table-striped">
+			<tbody>
+				<tr>
+					<th>名前</th><th><%= @enduser.name %></th>
+				</tr>
+				<tr>
+					<th>郵便番号</th><th><%= @enduser.postal_code %></th>
+				</tr>
+				<tr>
+					<th>住所</th><th><%= @enduser.address %></th>
+				</tr>
+				<tr>
+					<th>電話番号</th><th><%= @enduser.tell %></th>
+				</tr>
+				<tr>
+					<th>メールアドレス</th><th><%= @enduser.email %></th>
+				</tr>
+			</tbody>
+		</table>
+		<div class="field">
+			<%= link_to "お客様情報変更", edit_enduser_path(@enduser) %>
+			<%= link_to "戻る", root_path %>
+		</div>
+	</div>
+</div>
+
