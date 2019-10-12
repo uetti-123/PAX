@@ -14,16 +14,37 @@
      <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4">
-            <h1>PAX</h1>
-          </div>
-          <div class="col-lg-8">
-            <ul>
-              <li><%= link_to "会員登録", new_enduser_registration_path %></li>
-              <li><%= link_to "ログイン", new_enduser_session_path %></li>
-              <li><%= link_to "マイページ", enduser_path(current_enduser.id) %></li>
-              <li><%= link_to "ログアウト", destroy_enduser_session_path, method: :delete %></li>
-            </ul>
+          <div class="header-item">
+            <div class="col-xs-4">
+              <h1 class="header_title"><%= link_to "PAX", root_path, class: "line-item" %></h1>
+            </div>
+            <div class="col-xs-8">
+              <% if enduser_signed_in? %>
+                <ul>
+                  <li><a class="line-item"><%= link_to "ホーム", root_path, class: "line-item" %></a></li>
+                  <li><%= link_to "マイページ", enduser_path(enduser_id), class: "line-item" %></li>
+                  <li><%= link_to "ログアウト", destroy_enduser_session_path, method: :delete, class: "line-item" %></li>
+                </ul>
+              <% elsif admin_signed_in? %>
+                <ul>
+                  <li><%= link_to "ホーム", top_path, class: "line-item" %></li>
+                  <li><%= link_to "施設情報編集", admin_facility_path, class: "line-item" %></li>
+                  <li><%= link_to "新規施設登録", new_facility_path, class: "line-item" %></li>
+                  <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "line-item" %></li>
+                </ul>
+              <% elsif owner_signed_in? %>
+                <ul>
+                  <li>予約確認</li>
+                  <li><%= link_to "ログアウト", destroy_owner_session_path, method: :delete %></li>
+                </ul>
+              <% else %>
+                <ul>
+                  <li><%= link_to "ホーム", root_path, class: "line-item" %></li>
+                  <li><%= link_to "会員登録", new_enduser_registration_path, class: "line-item" %></li>
+                  <li><%= link_to "ログイン", new_enduser_session_path, class: "line-item" %></li>
+                </ul>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

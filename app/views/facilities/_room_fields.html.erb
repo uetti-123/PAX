@@ -1,0 +1,30 @@
+<div class="nested-fields">
+	<div class="form-group">
+		<table class="table table-striped">
+			<tr>
+				<th>部屋名</th><th><%= f.text_field :name %></th>
+			</tr>
+			<tr>
+				<th>部屋番号</th><th><%= f.number_field :number %></th>
+			</tr>
+			<tr>
+				<th>宿泊可能人数</th><th><%= f.number_field :capacity %></th>
+			</tr>
+			<tr>
+				<th>部屋情報</th><th><%= f.text_field :information %></th>
+			</tr>
+			<tr>
+				<th>料金</th><th><%= f.number_field :price %></th>
+			</tr>
+		</table>
+		<%= link_to_remove_association "部屋を削除する", f %>
+	</div>
+</div>
+<div class="nested-fields">
+	<%= f.fields_for :room_images do |room_image| %>
+		<%= render 'room_image_fields', f: room_image %>
+	<% end %>
+</div>
+<div class="links">
+	<%= link_to_add_association '部屋の画像を追加する',f, :room_images %>
+</div>

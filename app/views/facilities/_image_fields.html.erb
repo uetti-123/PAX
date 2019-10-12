@@ -1,0 +1,9 @@
+<div class="nested-fields">
+	<div class="form-group">
+		<div class="facility_add_image">
+			<h4>施設画像追加</h4>
+			<%= f.attachment_field :image, multiple: true %>
+			<%= link_to_remove_association "施設の画像を削除する", f %>
+		</div>
+	</div>
+</div>

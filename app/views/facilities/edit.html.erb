@@ -1,0 +1,40 @@
+<div class="container">
+	<h1>施設情報編集</h1>
+	<div class="row">
+			<%= form_for @facility do |s| %>
+				<div class="row">
+					<h4>施設名</h4>
+						<%= s.text_field :name %>
+					<h4>郵便番号</h4>
+						<%= s.text_field :postal_code %>
+					<h4>施設住所</h4>
+						<%= s.text_field :address %>
+					<h4>電話番号</h4>
+						<%= s.text_field :phone %>
+					<h4>メールアドレス</h4>
+						<%= s.text_field :email %>
+					<h4>地域</h4>
+						<%= s.text_field :region %>
+				</div>
+				<div class="image">
+					<%= s.fields_for :images do |f| %>
+						<%= render 'image_fields', f:f %>
+					<% end %>
+				</div>
+				<div class="room">
+					<%= s.fields_for :rooms do |room| %>
+						<%= render 'room_fields', f: room %>
+					<% end %>
+				</div>
+				<div class="links">
+					<%= link_to_add_association '部屋を追加する', s, :rooms %>
+				</div>
+			<%= s.submit '施設情報を編集する' %>
+			<% end %>
+			<% if admin_signed_in? %>
+      			<div class="field">
+        			<%= link_to "強制退会", admin_facility_path, method: :delete, data: { confirm: '本当に削除してもよろしいでしょうか?' }, class: "pull-denger", class: "btn btn-danger btn-xs" %>
+        		</div>
+      		<% end %>
+		</div>
+</div>

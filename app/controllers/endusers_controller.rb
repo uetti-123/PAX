@@ -3,6 +3,13 @@ class EndusersController < ApplicationController
 		@enduser = Enduser.find(params[:id])
 	end
 
+  def index
+    @q = Enduser.ransack(params[:q])
+    @endusers = @q.result(distinct: true)
+    #@checkを入れビューでのif文に書くことでparamsの値がnilと時は何も表示させない。
+    @check = params[:q]
+  end
+
 	def edit
 		@enduser = Enduser.find(params[:id])
 	  if @enduser == current_enduser
@@ -20,7 +27,12 @@ class EndusersController < ApplicationController
         flash.now[:alert] = "正しく記入してください。"
       	render :edit
       end
-  	end
+  end
+
+  def desyroy
+    Enduser.find(params[:id]).destroy
+  end
+
 
 	private
 	def enduser_params

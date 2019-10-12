@@ -1,1 +1,18 @@
-<h1><%= @facility.name %></h1>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-2">
+		</div>
+		<div class="col-xs-10">
+			<h1><%= @facility.name %></h1>
+				<% @image.each do |image| %>
+					<%= attachment_image_tag image, :image, :fill, 778, 525 %>
+				<% end %>
+			<div class="facility-explanation">
+				<h3>施設の特徴</h3>
+				<p><%= @facility.explanation %></p>
+			</div>
+			<div class="facility-room">
+			</div>
+		</div>
+	</div>
+</div>

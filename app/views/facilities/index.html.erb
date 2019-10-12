@@ -1,9 +1,25 @@
 <div class="container">
 	<div class="row">
-		<% @facilities.each do |facility| %>
-			<div class="field">
-				<%= link_to facility.name, facility_path(facility.id) %>
+		<div class="col-xs-2">
+		</div>
+		<div class="col-xs-10">
+			<div class="search-facility clearfix">
+			<% @facilities.each do |facility| %>
+				<% facility.images.each do |image| %>
+					<div class="facility-image">
+						<%= attachment_image_tag image, :image, :fill, 500, 300 %>
+					</div>
+				<% end %>
+					<div class="facility-info">
+						<h3><%= link_to facility.name, facility_path(facility.id), class: "facility-name" %></h3>
+						<p class="price">総額（税込）</p>
+						<h4 class="facility-price"><%= facility.rooms.minimum(:price) %><%= "円~" %></h4>
+						<div class="facility-details">
+							<%= link_to "詳しく見る", facility_path(facility.id), class: "link-details" %>
+						</div>
+	 				</div>
+			<% end %>
 			</div>
-		<% end %>
+		</div>
 	</div>
 </div>

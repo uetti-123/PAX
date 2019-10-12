@@ -11,33 +11,38 @@
 				<%= f.text_field :name, autofocus: true %>
 			</div>
 			<div class="field">
-    			<%= f.label :なまえ %><br />
-    			<%= f.text_field :name_kana, autofocus: true %>
-  			</div>
+    		<%= f.label :なまえ %><br />
+    		<%= f.text_field :name_kana, autofocus: true %>
+  		</div>
 			<div class="field">
-    			<%= f.label :電話番号 %><br />
-    			<%= f.text_field :tell, autofocus: true %>
-  			</div>
-  			<div class="field">
-    			<%= f.label :郵便番号 %><br />
-    			<%= f.text_field :postal_code, autofocus: true %>
-  			</div>
-  			<div class="field">
-    			<%= f.label :住所 %><br />
-    			<%= f.text_field :address, autofocus: true %>
-  			</div>
+    		<%= f.label :電話番号 %><br />
+    		<%= f.text_field :tell, autofocus: true %>
+  		</div>
+  		<div class="field">
+    		<%= f.label :郵便番号 %><br />
+    		<%= f.text_field :postal_code, autofocus: true %>
+  		</div>
+  		<div class="field">
+    		<%= f.label :住所 %><br />
+    		<%= f.text_field :address, autofocus: true %>
+  		</div>
 			<div class="field">
-    			<%= f.label :メールアドレス %><br />
-    			<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    		</div>
-    		<% if flash[:alert] %>
-         		<div class="alert alert-danger">
-          		<%= flash[:alert] %>
-         		</div>
-        	<% end %>
-        	<% end %>
-        	<div class="field">
-        		<%= link_to "戻る", enduser_path(@enduser) %>
-        	</div>
+    		<%= f.label :メールアドレス %><br />
+    		<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    	</div>
+    	<% if flash[:alert] %>
+      <div class="alert alert-danger">
+          <%= flash[:alert] %>
+      </div>
+      <% end %>
+      <% end %>
+      <div class="field">
+        <%= link_to "戻る", enduser_path(@enduser) %>
+      </div>
+      <% if admin_signed_in? %>
+      <div class="field">
+        <%= link_to "強制退会", enduser_path, method: :delete, data: { confirm: '本当に削除してもよろしいでしょうか?' }, class: "pull-denger", class: "btn btn-danger btn-xs" %>
+      <% end %>
+      </div>
     </div>
 </div>

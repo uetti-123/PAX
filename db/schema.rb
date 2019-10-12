@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_114811) do
+ActiveRecord::Schema.define(version: 2019_10_12_141445) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2019_10_03_114811) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.text "explanation"
-    t.string "image"
     t.string "movie"
     t.string "phone"
     t.string "address"
@@ -67,18 +66,20 @@ ActiveRecord::Schema.define(version: 2019_10_03_114811) do
     t.string "email"
     t.string "password"
     t.string "region"
-    t.string "image_id"
   end
 
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "enduser_id"
+    t.integer "facility_id"
   end
 
   create_table "images", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_id"
+    t.integer "facility_id"
   end
 
   create_table "owners", force: :cascade do |t|
@@ -112,6 +113,13 @@ ActiveRecord::Schema.define(version: 2019_10_03_114811) do
     t.integer "sum_price"
   end
 
+  create_table "room_images", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "room_id"
+    t.string "image_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -120,6 +128,7 @@ ActiveRecord::Schema.define(version: 2019_10_03_114811) do
     t.integer "capacity"
     t.text "information"
     t.integer "price"
+    t.integer "facility_id"
   end
 
   create_table "vacancies", force: :cascade do |t|

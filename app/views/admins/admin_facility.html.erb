@@ -12,7 +12,7 @@
 				<% if @check.present? %>
 				<% @facilities.each do |facility| %>
 				<tr>
-					<td><%= facility.name %></td><td><%= link_to "施設詳細", facility_path(facility.id) %></td>
+					<td><%= facility.name %></td><td><%= link_to "施設詳細", edit_facility_path(facility.id) %></td>
 				</tr>
 				<% end %>
 				<% else %>

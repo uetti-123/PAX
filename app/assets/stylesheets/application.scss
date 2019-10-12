@@ -15,3 +15,42 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+header{
+	line-height: center;
+	height: 69px;
+}
+
+.header_title{
+	color: #ffffff;
+}
+
+.col-xs-4{
+	text-align: center;
+}
+
+.col-xs-8{
+	text-align: center;
+	position: relative;
+}
+
+.header-item{
+	height: 69px;
+	line-height: 69px;
+}
+
+li{
+	display: inline;
+	padding-right: 30px;
+}
+
+.line-item{
+	color: white;
+	font-family: serif;
+}
+
+.line-item:hover{
+	color: #a52a2a;
+}
+

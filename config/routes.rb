@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'admins/admin_enduser', to: 'admins#admin_enduser', as: 'admin_enduser'
   get 'admins/admin_facility', to: 'admins#admin_facility', as: 'admin_facility'
-  get 'admins/admins/new_facility', to: 'admins#new_facility', as: 'new_facility'
   get 'admins/top', as: 'top'
+  get 'owners/owner_home', as: 'owner_home'
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -20,7 +19,7 @@ Rails.application.routes.draw do
   registrations: 'owners/registrations'
 }
 
-resources :endusers, only: [:edit, :update, :show]
+resources :endusers, only: [:edit, :update, :show, :index, :destroy]
 resources :owners
 resources :facilities
 resource :admins
