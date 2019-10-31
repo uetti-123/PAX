@@ -7,6 +7,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="//maps.google.com/maps/api/js?key=AIzaSyDg1eY3qWISC1ZaSfp1rvxcVPp6tl2Cdeg"></script>
+    <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+    <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
   </head>
 
   <body>
@@ -21,27 +27,27 @@
             <div class="col-xs-8">
               <% if enduser_signed_in? %>
                 <ul>
-                  <li><a class="line-item"><%= link_to "ホーム", root_path, class: "line-item" %></a></li>
-                  <li><%= link_to "マイページ", enduser_path(enduser_id), class: "line-item" %></li>
-                  <li><%= link_to "ログアウト", destroy_enduser_session_path, method: :delete, class: "line-item" %></li>
+                  <li class="line"><%= link_to "ホーム", root_path, class: "line-item" %></li>
+                  <li class="line"><%= link_to "マイページ", enduser_path(current_enduser.id), class: "line-item" %></li>
+                  <li class="line"><%= link_to "ログアウト", destroy_enduser_session_path, method: :delete, class: "line-item" %></li>
                 </ul>
               <% elsif admin_signed_in? %>
                 <ul>
-                  <li><%= link_to "ホーム", top_path, class: "line-item" %></li>
-                  <li><%= link_to "施設情報編集", admin_facility_path, class: "line-item" %></li>
-                  <li><%= link_to "新規施設登録", new_facility_path, class: "line-item" %></li>
-                  <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "line-item" %></li>
+                  <li class="line"><%= link_to "ホーム", top_path, class: "line-item" %></li>
+                  <li class="line"><%= link_to "施設情報編集", admin_facility_path, class: "line-item" %></li>
+                  <li class="line"><%= link_to "新規施設登録", new_facility_path, class: "line-item" %></li>
+                  <li class="line"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "line-item" %></li>
                 </ul>
               <% elsif owner_signed_in? %>
                 <ul>
-                  <li>予約確認</li>
-                  <li><%= link_to "ログアウト", destroy_owner_session_path, method: :delete %></li>
+                  <li class="line">予約確認</li>
+                  <li class="line"><%= link_to "ログアウト", destroy_owner_session_path, method: :delete %></li>
                 </ul>
               <% else %>
                 <ul>
-                  <li><%= link_to "ホーム", root_path, class: "line-item" %></li>
-                  <li><%= link_to "会員登録", new_enduser_registration_path, class: "line-item" %></li>
-                  <li><%= link_to "ログイン", new_enduser_session_path, class: "line-item" %></li>
+                  <li class="line"><%= link_to "ホーム", root_path, class: "line-item" %></li>
+                  <li class="line"><%= link_to "会員登録", new_enduser_registration_path, class: "line-item" %></li>
+                  <li class="line"><%= link_to "ログイン", new_enduser_session_path, class: "line-item" %></li>
                 </ul>
               <% end %>
             </div>

@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="row">
+		<h2><%= @feature.title %></h2>
+		<div class="field">
+			<%= attachment_image_tag @feature, :image, :fill, 300, 300 %>
+		</div>
+		<div class="field">
+			<%= link_to "Edit", edit_feature_path(@feature) %>|
+			<%= link_to "Destroy", feature_path(@feature), method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+		</div>
+	</div>
+</div>

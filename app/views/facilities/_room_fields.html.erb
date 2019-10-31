@@ -11,10 +11,16 @@
 				<th>宿泊可能人数</th><th><%= f.number_field :capacity %></th>
 			</tr>
 			<tr>
-				<th>部屋情報</th><th><%= f.text_field :information %></th>
+				<th>部屋情報</th><th><%= f.text_area :information, class:"input-mysize-explanation" %></th>
 			</tr>
 			<tr>
 				<th>料金</th><th><%= f.number_field :price %></th>
+			</tr>
+			<tr>
+				<th>ルームタイプ</th><th><%= f.text_field :plan %></th>
+			</tr>
+			<tr>
+				<th>ルーム数</th><th><%= f.number_field :room_stock %></th>
 			</tr>
 		</table>
 		<%= link_to_remove_association "部屋を削除する", f %>

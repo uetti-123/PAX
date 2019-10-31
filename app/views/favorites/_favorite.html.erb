@@ -1,0 +1,11 @@
+<div class="like-link" id="like-link-<%= facility.id %>">
+  <% if current_enduser.favorites.find_by(facility_id: facility.id) %>
+    <%= link_to unfavorite_path(facility.id), method: :delete, remote: true do %>
+        <div class = "iine__button">❤️<%= facility.favorites.count %></div>
+    <% end %>
+  <% else %>
+    <%= link_to facility_path(story.id), method: :post, remote: true do %>
+        <div class = "iine__button">♡️<%= facility.favorites.count %></div>
+    <% end %>
+  <% end %>
+</div>

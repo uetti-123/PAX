@@ -10,11 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bxslider
  *= require_tree .
  *= require_self
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @impotr "bxsilder";
 
 
 header{
@@ -40,7 +42,7 @@ header{
 	line-height: 69px;
 }
 
-li{
+.line{
 	display: inline;
 	padding-right: 30px;
 }

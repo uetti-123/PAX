@@ -1,8 +1,8 @@
 <div class="container">
 	<h2>新規施設登録</h2>
 		<div class="row">
+						<%= form_for @facility do |s| %>
 			<table class="table table-striped">
-			<%= form_for @facility do |s| %>
 				<tr>
 					<th>施設名</th><th><%= s.text_field :name %></th>
 				</tr>
@@ -20,6 +20,15 @@
 				</tr>
 				<tr>
 					<th>地域</th><th><%= s.text_field :region %></th>
+				</tr>
+				<tr>
+					<th>施設情報</th><th><%= s.text_area :explanation, class:"input-mysize-explanation" %></th>
+				</tr>
+				<tr>
+					<th>チェックイン/チェックアウト時間</th><th><%= s.text_field :time %></th>
+				</tr>
+				<tr>
+					<th>特集用</th><th><%= s.text_field :heading %></th>
 				</tr>
 			</table>
 				<div class="image">

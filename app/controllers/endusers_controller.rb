@@ -1,6 +1,7 @@
 class EndusersController < ApplicationController
 	def show
 		@enduser = Enduser.find(params[:id])
+    @reservation = Reservation.all
 	end
 
   def index

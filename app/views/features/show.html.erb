@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-2">
+		</div>
+		<div class="col-xs-10">
+			<h2 class="feature-title"><%= @feature.title %></h2>
+			<% @facilities.each do |f| %>
+				<div class="heading-item">
+					<% f.images.first(1).each do |image| %>
+						<%= attachment_image_tag image, :image, :fill, 300, 200 %>
+					<% end %>
+					<%= link_to f.name, facility_path(f.id), class:"heading-facility-name" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

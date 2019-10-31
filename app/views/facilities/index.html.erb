@@ -2,24 +2,25 @@
 	<div class="row">
 		<div class="col-xs-2">
 		</div>
-		<div class="col-xs-10">
-			<div class="search-facility clearfix">
+		<div class="col-xs-10 search-item">
+			<h2 class="index-title">検索結果</h2>
 			<% @facilities.each do |facility| %>
-				<% facility.images.each do |image| %>
-					<div class="facility-image">
-						<%= attachment_image_tag image, :image, :fill, 500, 300 %>
-					</div>
-				<% end %>
-					<div class="facility-info">
-						<h3><%= link_to facility.name, facility_path(facility.id), class: "facility-name" %></h3>
-						<p class="price">総額（税込）</p>
-						<h4 class="facility-price"><%= facility.rooms.minimum(:price) %><%= "円~" %></h4>
-						<div class="facility-details">
-							<%= link_to "詳しく見る", facility_path(facility.id), class: "link-details" %>
-						</div>
-	 				</div>
-			<% end %>
+			<div class="row result-search">
+				<div class="col-xs-8 facility-image-index">
+					<% facility.images.first(1).each do |image| %>
+								<%= attachment_image_tag image, :image, :fill, 500, 300, class:"facility-image-item" %>
+					<% end %>
+				</div>
+				<div class="col-xs-4 facility-info-index">
+						<h3><%= link_to facility.name, facility_path(facility.id), class: "facility-name-index" %></h3>
+							<p class="price">総額（税込）</p>
+							<h4 class="facility-price-index"><%= facility.rooms.minimum(:price) %><%= "円~" %></h4>
+							<div class="facility-details">
+								<%= link_to "詳しく見る", facility_path(facility.id), class: "link-details" %>
+							</div>
+				</div>
 			</div>
+			<% end %>
 		</div>
 	</div>
 </div>

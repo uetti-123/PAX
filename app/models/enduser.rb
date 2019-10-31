@@ -5,5 +5,6 @@ class Enduser < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :people
   has_many :favorites, dependent: :destroy
+  has_many :favorite_facilities, through: :favorites, source: :facility
   has_many :reservations
 end

@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="row">
+		<%= form_for @reservation, url: reserved_path do |f| %>
+			<%= f.label :宿泊人数 %>
+			<%= f.number_field :people %>
+			<%= f.label :チェックイン時間　%>
+			<%= f.date_select :start_on %>
+			<%= f.label :チェックアウト時間　%>
+			<%= f.date_select :end_on %>
+			<%= f.submit "予約画面へ" %>
+		<% end %>
+	</div>
+</div>

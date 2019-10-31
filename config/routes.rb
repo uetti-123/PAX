@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
 
+  root to: 'facilities#home'
+
   get 'admins/admin_facility', to: 'admins#admin_facility', as: 'admin_facility'
   get 'admins/top', as: 'top'
   get 'owners/owner_home', as: 'owner_home'
+  post   '/favorite/:facility_id' => 'favorites#favorite',   as: 'favorite'
+  delete '/favorite/:facility_id' => 'favorites#unfavorite', as: 'unfavorite'
+  get 'reserved', to:'reservations#reserved', as: 'reserved'
+  get 'features/:feature_id/segment', to: 'features#segment', as: 'segment'
+  post 'room/:id/reservations', to: 'reservations#new', as: "new_reservation"
+  
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -23,8 +31,9 @@ resources :endusers, only: [:edit, :update, :show, :index, :destroy]
 resources :owners
 resources :facilities
 resource :admins
+resources :features, only: [:edit, :index, :show, :new, :destroy]
+resources :reservations
 
 
-root to: 'facilities#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

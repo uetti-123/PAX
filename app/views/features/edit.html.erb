@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="row">
+		<h2>特集編集画面</h2>
+			<%= form_with model: @feature do |f| %>
+			<div class="field">
+				<%= f.label :特集タイトル %>
+				<%= f.text_field :title %>
+			</div>
+			<div class="field">
+				<%= f.label :特集画像　%>
+				<%= f.attachment_field :image %>
+			</div>
+			<%= f.submit '更新' %>
+			<% end %>
+	</div>
+</div>

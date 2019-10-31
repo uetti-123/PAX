@@ -1,12 +1,28 @@
-<div class="container">
-	<div class="row">
-		<%= image_tag 'image1.jpg', :size =>'1265x600' %>
+<div class="container home-area">
+	<div class="row home-field">
+		<div class="home-image">
+			<%= image_tag 'image1.jpg', class:"center-image" %>
+		</div>
 	</div>
-	<div class="row">
+	<div class="row home-search">
 		<%= search_form_for @q do |f| %>
 			<%= f.label :name_or_region, "行き先・宿名で探す" %>
 			<%= f.search_field :name_or_region_cont %>
 			<%= f.submit "検索" %>
 		<% end %>
+	</div>
+	<div class="row">
+		<h3 class="selections">シーンに合わせて</h3>
+		<div class="features clearfix">
+			<% @features.each do |f| %>
+				<div class="features-item">
+					<%= attachment_image_tag f, :image, :fill, 250, 150 %>
+					<%= form_tag(feature_path(f), :method => 'get') do |sf| %>
+						<%= hidden_field_tag 'search', f.title %>
+						<%= submit_tag f.title, :class =>"btn btn-default btn-s-md feature-input" %>
+				<% end %>
+				</div>
+			<% end %>
+		</div>
 	</div>
 </div>

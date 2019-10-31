@@ -12,8 +12,21 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery
 //= require cocoon
+//= require bxslider
 //= require bootstrap-sprockets
+//= require underscore
+//= require gmaps/google
 //= require_tree .
+$(function() {
+  //モーダルを開く
+  $('.link-modal').click(function() {
+    $('.overlay, .modal').fadeIn();
+  })
+  //モーダルの外側か閉じるをクリックでモーダルを閉じる
+  $('.close').click(function() {
+    $('.overlay, .modal').fadeOut();
+  })
+});
+

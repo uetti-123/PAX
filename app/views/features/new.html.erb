@@ -1,0 +1,18 @@
+<div class="container">
+	<h2>特集コーナー登録</h2>
+	<div class="row">
+		<%= form_with model: @feature do |f| %>
+			<div class="field">
+				<h4>見出し</h4>
+				<%= f.text_field :title %>
+			</div>
+			<div class="field">
+				<h4>画像登録</h4>
+				<%= f.attachment_field :image %>
+			</div>
+			<div class="field">
+				<%= f.submit '特集コーナーに登録する' %>
+			</div>
+		<% end %>
+	</div>
+</div>

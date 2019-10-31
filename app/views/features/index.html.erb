@@ -1,0 +1,11 @@
+<div class="container">
+	<div class="row">
+		<% @features.each do |feature| %>
+		<table class="table table-striped">
+			<tr>
+				<td><%= feature.title %></td><td><%= link_to "個別ページへ", segment_path(feature.id) %>
+			</tr>
+		</table>
+		<% end %>
+	</div>
+</div>

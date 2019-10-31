@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_141445) do
+ActiveRecord::Schema.define(version: 2019_10_30_075340) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -66,6 +66,22 @@ ActiveRecord::Schema.define(version: 2019_10_12_141445) do
     t.string "email"
     t.string "password"
     t.string "region"
+    t.integer "Favorites_count"
+    t.string "heading"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "time"
+    t.text "precaution"
+    t.text "equipment"
+  end
+
+  create_table "facility_features", force: :cascade do |t|
+    t.integer "facility_id"
+    t.integer "feature_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["facility_id"], name: "index_facility_features_on_facility_id"
+    t.index ["feature_id"], name: "index_facility_features_on_feature_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -73,6 +89,13 @@ ActiveRecord::Schema.define(version: 2019_10_12_141445) do
     t.datetime "updated_at", null: false
     t.integer "enduser_id"
     t.integer "facility_id"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "title"
+    t.string "image_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -106,11 +129,21 @@ ActiveRecord::Schema.define(version: 2019_10_12_141445) do
     t.integer "number"
   end
 
+  create_table "plans", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "payment"
     t.integer "sum_price"
+    t.datetime "start_on"
+    t.datetime "end_on"
+    t.integer "room_id"
+    t.integer "people"
+    t.integer "enduser_id"
   end
 
   create_table "room_images", force: :cascade do |t|
@@ -129,6 +162,9 @@ ActiveRecord::Schema.define(version: 2019_10_12_141445) do
     t.text "information"
     t.integer "price"
     t.integer "facility_id"
+    t.string "plan"
+    t.integer "plan_stock"
+    t.integer "room_stock"
   end
 
   create_table "vacancies", force: :cascade do |t|
