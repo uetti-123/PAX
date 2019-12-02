@@ -8,6 +8,7 @@ class Facility < ApplicationRecord
 	accepts_nested_attributes_for :rooms, allow_destroy: true
 	#accepts_attachments_for :images, attachment: :image
 	accepts_nested_attributes_for :images, allow_destroy: true
+	belongs_to :owner
 
 	geocoded_by :address
 	after_validation :geocode, if: :address_changed?

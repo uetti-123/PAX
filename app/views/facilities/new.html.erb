@@ -1,7 +1,7 @@
 <div class="container">
 	<h2>新規施設登録</h2>
 		<div class="row">
-						<%= form_for @facility do |s| %>
+						<%= form_for @facility, url: create_facilities_path do |s| %>
 			<table class="table table-striped">
 				<tr>
 					<th>施設名</th><th><%= s.text_field :name %></th>

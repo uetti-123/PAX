@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+		<h2>予約確認</h2>
+		<% @rooms.each do |room| %>
+			<table class="table table-striped">
+				<% room.reservations.each do |r| %>
+				<tr>
+					<th>チェックイン・チェックアウト</th><th><%= r.start_on.try(:strftime,"%Y年%m月%d日") %>/<%= r.end_on.try(:strftime,"%Y年%m月%d日") %></th>
+				</tr>
+				<tr>
+					<th>お客様氏名</th><th><%= r.enduser.name %>
+				</tr>
+				<% end %>
+			</table>
+		<% end %>
+	</div>
+</div>

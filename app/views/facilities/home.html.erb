@@ -1,17 +1,15 @@
-<div class="container home-area">
-	<div class="row home-field">
-		<div class="home-image">
+<div class="home-area">
+	<div class="home-field">
 			<%= image_tag 'image1.jpg', class:"center-image" %>
-		</div>
 	</div>
-	<div class="row home-search">
+	<div class="home-search">
 		<%= search_form_for @q do |f| %>
 			<%= f.label :name_or_region, "行き先・宿名で探す" %>
 			<%= f.search_field :name_or_region_cont %>
 			<%= f.submit "検索" %>
 		<% end %>
 	</div>
-	<div class="row">
+	<div>
 		<h3 class="selections">シーンに合わせて</h3>
 		<div class="features clearfix">
 			<% @features.each do |f| %>

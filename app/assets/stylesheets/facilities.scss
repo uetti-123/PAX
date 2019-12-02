@@ -36,7 +36,7 @@
 
 .result-search{
 	padding-bottom: 50px;
-	height: 100%;
+	height: 400px;
 }
 
 .index-title{
@@ -46,7 +46,8 @@
 
 .facility-image-item{
 	width: 100%;
-	background-size: cover;
+	height: 350px;
+	background-position: center;
 }
 
 .facility-info-index{
@@ -92,23 +93,19 @@
 
 .home-area{
 	width: 	100%;
-	heigth: 40%;
 	padding: 0;
 	margin: none;
 }
 
 .home-field{
 	width: 100%;
-	height: 100%;
-}
-
-.home-image{
-	heigtht: 600px;
-	width: 100%;
+	height: 400px;
+	padding-bottom: 30px;
 }
 
 .center-image{
 	width: 100%;
+	height: 100%;
 	background-position: center;
 }
 
@@ -262,7 +259,7 @@
 .room-box-item{
 	border-bottom: 1px solid #efefef;
 	padding: 10px 0;
-	height: 100px;
+	height: 130px;
 }
 
 #room-information-title{

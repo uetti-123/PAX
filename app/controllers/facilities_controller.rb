@@ -27,6 +27,7 @@ class FacilitiesController < ApplicationController
 	end
 
 	def new
+		@owner = Owner.find(params[:owners_id])
 		@facility = Facility.new
 		@images = @facility.images.build
 		@room = @facility.rooms.build
@@ -35,6 +36,8 @@ class FacilitiesController < ApplicationController
 
 	def create
 		@facility = Facility.new(facility_params)
+		@owner = Owner.find(params[:owners_id])
+		@facility.owner_id = @owner.id
 		@facility.save
 		redirect_to new_facility_path
 	end

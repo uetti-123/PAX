@@ -8,11 +8,10 @@
 					<li class="facility-list-item"><%= link_to("施設の特徴", { anchor: "facility-characteristic" }) %></li>
 					<li class="facility-list-item"><%= link_to("部屋情報", { anchor: "room-information-title" }) %></li>
 					<li class="facility-list-item"><%= link_to("施設情報", { anchor: "facility-information-title" }) %></li>
-					<li class="facility-list-item"><%= link_to("予約", { anchor: "reservation" }) %></li>
 				</ul>
 			</nav>
 			<h1 class="facility-show-title"><%= @facility.name %></h1>
-			<div class="bxslider">
+			<div id="bxslider">
 				<% @facility.images.each do |image| %>
 					<%= attachment_image_tag image, :image, class: "bxslider-image" %>
 				<% end %>
@@ -27,9 +26,7 @@
 					<% @facility.rooms.each do |room| %>
 						<div class="room-box-item">
 							<div class="col-xs-3 show-room-image">
-								<% room.room_images.each do |image| %>
-									<% attachment_image_tag image, :image %>
-								<% end %>
+								<%= attachment_image_tag room.room_images.first, :image, :fill, 150, 100 %>
 							</div>
 							<table class="col-xs-7 show-room-plan">
 								<tr>
@@ -40,29 +37,30 @@
 								</tr>
 							</table>
 							<div class="col-xs-2 room-reservation">
-									<p class="link-modal">予約情報入力</p>
+									<p class="link-modal" data-target='modal<%= room.id %>'>予約情報入力</p>
 							</div>
 						</div>
-							<div class="overlay">
-								<div class="modal">
-									<%= form_for @reservation, url: new_reservation_path(room.id) do |r| %>
-										<div class="modal-item">
-											<%= r.label :宿泊人数 %>
-											<%= r.number_field :people, {class: 'class_name'} %>
-										</div>
-										<div class="modal-item">
-											<%= r.label :チェックイン時間　%>
-											<%= r.date_select :start_on %>
-										</div>
-										<div class="modal-item">
-											<%= r.label :チェックアウト時間　%>
-											<%= r.date_select :end_on %>
-										</div>
-										<%= r.submit "予約画面へ" %>
-									<% end %>
-									<div class="close">閉じる</div>
-								</div>
+
+						<div id="modal<%= room.id %>" class="modal">
+							<div>
+								<%= form_for @reservation, url: new_reservation_path(room.id) do |r| %>
+									<div class="modal-item">
+										<%= r.label :宿泊人数 %>
+										<%= r.number_field :people, max: room.capacity, min: 1 %>
+									</div>
+									<div class="modal-item">
+										<%= r.label :チェックイン時間　%>
+										<%= r.date_select :start_on %>
+									</div>
+									<div class="modal-item">
+										<%= r.label :チェックアウト時間　%>
+										<%= r.date_select :end_on %>
+									</div>
+									<%= r.submit "予約画面へ" %>
+								<% end %>
 							</div>
+							<div class="close">閉じる</div>
+						</div>
 					<% end %>
 				</div>
 			</div>

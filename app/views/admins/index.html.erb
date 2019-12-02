@@ -1,0 +1,22 @@
+<div class="container">
+	<h2>オーナー検索</h2>
+		<div class="row">
+			<%= search_form_for(@q, url:admins_index_path) do |f| %>
+				<%= f.label :name, 'オーナー名を入力してください' %>
+				<%= f.search_field :name_cont %>
+				<%= f.submit "検索" %>
+			<% end %>
+		</div>
+		<div class="row">
+			<table class="table table-striped">
+				<% if @check.present? %>
+					<% @owners.each do |owner| %>
+					<tr>
+						<td><%= owner.name %></td><td><%= link_to "施設登録", new_facility_path(owner.id) %></td>
+					</tr>
+				<% end %>
+				<% else %>
+				<% end %>
+			</table>
+		</div>
+</div>
