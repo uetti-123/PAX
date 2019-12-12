@@ -2,17 +2,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
-	#def authenticate!
-  		#if admin_signed_in?
-    		#authenticate_admin!
-  		#elsif enduser_signed_in?
-    		#authenticate_enduser!
-    	#else
-    		#authenticate_owner!
-  		#end
-	#end
-
-	#before_action :search
+	def authenticate!
+  		if admin_signed_in?
+    		authenticate_admin!
+  		elsif enduser_signed_in?
+    		authenticate_enduser!
+    	else
+    		authenticate_owner!
+  		end
+	end
 
 	def after_sign_in_path_for(resource)
 	  case resource

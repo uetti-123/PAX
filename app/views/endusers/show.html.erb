@@ -37,6 +37,7 @@
 		<div class="field">
 			<%= link_to "お客様情報変更", edit_enduser_path(@enduser) %>
 			<%= link_to "戻る", root_path %>
+			<%= link_to "退会", enduser_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 		</div>
 	</div>
 </div>

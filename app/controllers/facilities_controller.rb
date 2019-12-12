@@ -1,4 +1,5 @@
 class FacilitiesController < ApplicationController
+	before_action :authenticate_enduser, except:[:index, :show, :home]
 	def home
 		@q = Facility.ransack(params[:q])
 		@facilities = @q.result(distinct: true)

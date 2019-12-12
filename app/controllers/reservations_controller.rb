@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+	before_action :authenticate_enduser!
 	def new
 		@reservation = Reservation.new(reservation_params)
         @room = Room.find(params[:id])

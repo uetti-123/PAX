@@ -1,4 +1,5 @@
 class EndusersController < ApplicationController
+  before_action :authenticate_enduser!
 	def show
 		@enduser = Enduser.find(params[:id])
     @reservation = @enduser.reservations.all
