@@ -1,24 +1,6 @@
-# README
+宿泊サイトです。
+既存のサイトは視覚的な情報量が多く、宿泊施設の本質が見えにくいと感じたたことが、当サイトを制作したきっかけです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+①予約確定時のヴァリデーションと無駄なページ遷移を無くした
+②シンプルなデザインを心がけ、宿泊施設の情報を分かりやすくした
+上記2点に力を入れました。
