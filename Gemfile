@@ -76,6 +76,6 @@ gem 'momentjs-rails'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'bxslider-rails'
-#group :production do
-  #gem 'mysql2'
-#end
+group :production do
+  gem 'mysql2'
+end
