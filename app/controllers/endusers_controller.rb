@@ -33,7 +33,7 @@ class EndusersController < ApplicationController
 
    def destroy
       Enduser.find(params[:id]).destroy
-      redirect_to home_path
+      redirect_to root_path
   end
 
 
